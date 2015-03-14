@@ -7,15 +7,15 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('CourseCtrl', function($scope, Chats) {
-	$scope.chats = Chats.all();
+.controller('CourseCtrl', function($scope, Courses) {
+	$scope.courses = Courses.all();
 	$scope.remove = function(chat) {
-		Chats.remove(chat);
+		Courses.remove(chat);
 	}
 })
 
-.controller('CourseDetailCtrl', function($scope, $stateParams, Chats) {
-	$scope.chat = Chats.get($stateParams.courseId);
+.controller('CourseDetailCtrl', function($scope, $stateParams, Courses) {
+	$scope.course = Courses.get($stateParams.course_id);
 })
 
 .controller('SettingCtrl', function($scope) {
