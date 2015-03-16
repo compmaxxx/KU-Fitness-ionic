@@ -7,8 +7,14 @@ angular.module('starter.controllers', [])
 	}
 })
 
+.controller('TabsCtrl', function($scope) {
+
+})
+
 .controller('CourseCtrl', function($scope, Courses) {
-	$scope.courses = Courses.all();
+	Courses.all().then(function(data) {
+		$scope.courses = data;
+	});
 	$scope.remove = function(chat) {
 		Courses.remove(chat);
 	}
