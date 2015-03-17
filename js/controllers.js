@@ -1,10 +1,10 @@
 angular.module('starter.controllers', [])
 
 .controller('ResultCtrl', function($scope, Results) {
-	$scope.results = Results.all();
-	$scope.remove = function(result) {
-		Results.remove(result);
-	}
+  $scope.results = Results.all();
+  $scope.remove = function(result) {
+    Results.remove(result);
+  }
 })
 
 .controller('TabsCtrl', function($scope) {
@@ -12,20 +12,26 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CourseCtrl', function($scope, Courses) {
-	Courses.all().then(function(data) {
-		$scope.courses = data;
-	});
-	$scope.remove = function(chat) {
-		Courses.remove(chat);
-	}
+  Courses.all().then(function(data) {
+    $scope.courses = data;
+  });
+  $scope.remove = function(chat) {
+    Courses.remove(chat.id);
+  }
 })
 
 .controller('CourseDetailCtrl', function($scope, $stateParams, Courses) {
-	$scope.course = Courses.get($stateParams.course_id);
+  var course_id = $stateParams.course_id;
+  Courses.get(course_id).then(function(data) {
+    $scope.course = data;
+  });
+  Courses.get_tests(course_id).then(function(data) {
+    $scope.tests = data;
+  });
 })
 
 .controller('SettingCtrl', function($scope) {
-	$scope.settings = {
-		enableFriends: true
-	};
+  $scope.settings = {
+    enableFriends: true
+  };
 });
