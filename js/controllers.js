@@ -22,9 +22,7 @@ angular.module('starter.controllers', [])
 
 .controller('CourseDetailCtrl', function($scope, $stateParams, Courses) {
   var course_id = $stateParams.course_id;
-  Courses.get(course_id).then(function(data) {
-    $scope.course = data;
-  });
+  $scope.course = Courses.get(course_id);
   Courses.get_tests(course_id).then(function(data) {
     $scope.tests = data;
   });
