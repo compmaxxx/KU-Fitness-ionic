@@ -2,13 +2,19 @@
   <ion-content>
     <ion-list>
       <ion-item class="item-input">
-        <span class="input-label">Tester Nubmer</span>
-        <input type="text" ng-model="tester_tag">
+        <span class="input-label">Tester Number</span>
+        <input type="number" ng-model="tester_tag">
       </ion-item>
       <ion-item class="item-input">
         <span class="input-label">Value</span>
-        <input type="text" ng-model="result_value" placeholder="{{test.unit}}">
+        <input type="number" ng-model="result_value" placeholder="{{test.unit}}">
       </ion-item>
+      <br/>
+      <br/>
+      <br/>      
+      <button class="button button-block button-balanced">
+        บันทึก
+      </button>
     </ion-list>
   </ion-content>
 </ion-view>
