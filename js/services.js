@@ -45,9 +45,9 @@ angular.module('starter.services', [])
     ByCourse: function(course_id) {
       var deferred = $q.defer()
       $http({
-          url: url,
+          url: url + '/by-course',
           method: 'GET',
-          data: {
+          params: {
             'id': course_id
           }
         })
