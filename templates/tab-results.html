@@ -1,7 +1,7 @@
 <ion-view view-title="Result">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="result in results" type="item-text-wrap" href="#/tab/courses/{{result.tester_tag}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="result in results" type="item-text-wrap" href="#/tab/result/{{result.result_id}}">
         <h2>หมายเลข {{result.tester_tag}}</h2>
         <p>{{result.course_name}}</p>
         <p>{{result.test_name}}</p>

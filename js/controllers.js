@@ -15,9 +15,6 @@ angular.module('starter.controllers', [])
   Courses.all().then(function(data) {
     $scope.courses = data;
   });
-  $scope.remove = function(chat) {
-    Courses.remove(chat.id);
-  }
 })
 
 .controller('CourseDetailCtrl', function($scope, $stateParams, Courses, Tests) {
@@ -28,9 +25,36 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('TestDetailCtrl', function($scope, $stateParams, Tests) {
+.controller('TestDetailCtrl', function($scope, $stateParams, Tests, Results) {
   var test_id = $stateParams.test_id;
+  var course_id = $stateParams.course_id;
   $scope.test = Tests.get(test_id);
+  $scope.result = {};
+
+  $scope.save = function() {
+    //validation
+    function isNumber(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    function isInt(n) {
+      return Number(n) === n && n % 1 === 0;
+    }
+    if (!isNumber($scope.result.value)) {
+      alert($scope.result.value + ' is not real number');
+    } else if (!isInt($scope.result.tester_tag)) {
+      alert('Tester tag is not integer');
+    } else {
+      Results.saveToServer({
+        'value': $scope.result.value,
+        'test_id': test_id,
+        'tester_tag': $scope.result.tester_tag,
+        'course_id': course_id
+      }).then(function(data) {
+        alert(data);
+      })
+    }
+  }
 
 })
 

@@ -3,16 +3,16 @@
     <ion-list>
       <ion-item class="item-input">
         <span class="input-label">Tester Number</span>
-        <input type="number" ng-model="tester_tag">
+        <input type="number" ng-model="result.tester_tag">
       </ion-item>
       <ion-item class="item-input">
         <span class="input-label">Value</span>
-        <input type="number" ng-model="result_value" placeholder="{{test.unit}}">
+        <input type="number" ng-model="result.value" placeholder="{{test.unit}}">
       </ion-item>
       <br/>
       <br/>
-      <br/>      
-      <button class="button button-block button-balanced">
+      <br/>
+      <button class="button button-block button-balanced" ng-click="save()">
         บันทึก
       </button>
     </ion-list>
