@@ -102,3 +102,13 @@ var LOCAL_MODE = true;
 var Config = {
   HOST: LOCAL_MODE ? 'localhost' : '158.108.34.49',
 };
+
+var Helper = {
+  isNumber: function(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  },
+
+  isInt: function(n) {
+    return Number(n) === n && n % 1 === 0;
+  }
+}

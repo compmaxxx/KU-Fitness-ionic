@@ -125,7 +125,7 @@ angular.module('starter.services', [])
       var deferred = $q.defer();
       $http({
           url: url,
-          method: 'PUT',
+          method: 'POST',
           data: {
             'value': result.value,
             'test_id': result.test_id,
